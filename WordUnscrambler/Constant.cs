@@ -1,6 +1,6 @@
 ﻿namespace WordUnscrambler
 {
-    static class Constant
+    public static class Constant
     {
         public const string WordFileName = "AppWordList.txt";
 
@@ -14,8 +14,8 @@
         public const string FileInputIndicator = "F";
         public const string ManualInputIndicator = "M";
         public const string MatchNotFound = "No match found";
-        public const string continueDecision_Yes = "Y";
-        public const string continueDecision_No = "N";
+        public const string ContinueDecisionYes = "Y";
+        public const string ContinueDecisionNo = "N";
 
         public const string OptionToExitOrContinue = "Would you like to continue? Y/N: ";
 

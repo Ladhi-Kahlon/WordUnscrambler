@@ -10,7 +10,7 @@ namespace WordUnscrambler
         private static readonly WordMatcher WordMatcher = new WordMatcher();
         private const string WordListFileName = Constant.WordFileName;
 
-        private static void Main()
+        public static void Main()
         {
             try
             {
@@ -44,10 +44,10 @@ namespace WordUnscrambler
                         Console.Write(Constant.OptionToExitOrContinue);
                         continueDecision = Console.ReadLine() ?? string.Empty;
 
-                    } while (!string.Equals(continueDecision, Constant.continueDecision_Yes, StringComparison.OrdinalIgnoreCase)
-                             && !string.Equals(continueDecision, Constant.continueDecision_No, StringComparison.OrdinalIgnoreCase));
+                    } while (!string.Equals(continueDecision, Constant.ContinueDecisionYes, StringComparison.OrdinalIgnoreCase)
+                             && !string.Equals(continueDecision, Constant.ContinueDecisionNo, StringComparison.OrdinalIgnoreCase));
 
-                    continueApp = continueDecision.Equals(Constant.continueDecision_Yes, StringComparison.OrdinalIgnoreCase);
+                    continueApp = continueDecision.Equals(Constant.ContinueDecisionYes, StringComparison.OrdinalIgnoreCase);
 
                 } while (continueApp);
                 Console.WriteLine(Constant.ExistingApplication);
