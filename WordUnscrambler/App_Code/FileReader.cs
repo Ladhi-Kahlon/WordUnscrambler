@@ -4,9 +4,9 @@ using System.IO;
 // ReSharper disable once CheckNamespace
 namespace WordUnscrambler.App_Code
 {
-    public class FileReader
+    internal class FileReader
     {
-        public string[] Read(string fileName)
+        internal string[] Read(string fileName)
         {
             string[] fileContents;
             try

@@ -5,9 +5,9 @@ using WordUnscrambler.App_Data;
 // ReSharper disable once CheckNamespace
 namespace WordUnscrambler.App_Code
 {
-    public class WordMatcher
+    class WordMatcher
     {
-        public List<MatchedWord> Match(string[] scrambledWords, string[] wordList)
+        internal List<MatchedWord> Match(string[] scrambledWords, string[] wordList)
         {
             var matchWords = new List<MatchedWord>();
 

@@ -1,6 +1,6 @@
 ﻿namespace WordUnscrambler.App_Data
 {
-    public struct MatchedWord
+    struct MatchedWord
     {
         public string ScrambledWord { get; set; }
         public string Word { get; set; }    

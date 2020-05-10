@@ -5,4 +5,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+      <_Parameter1>WordUnscrambler.Test.Unit.Core</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+
 </Project>
