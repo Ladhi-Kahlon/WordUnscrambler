@@ -4,21 +4,15 @@ using System.IO;
 // ReSharper disable once CheckNamespace
 namespace WordUnscrambler.App_Code
 {
-    class FileReader
+    internal class FileReader
     {
         public string[] Read(string fileName)
         {
-            string[] fileContents;
+            string[] fileContents = null;
             try
             {
-                if (File.Exists(fileName))
-                {
-                    fileContents = File.ReadAllLines(fileName);
-                }
-                else
-                {
-                    throw new FileNotFoundException();
-                }
+                // Read file contents for given file name.
+                fileContents = File.ReadAllLines(fileName);
             }
             catch (Exception e)
             {

@@ -11,6 +11,7 @@ namespace WordUnscrambler.App_Code
         {
             var matchWords = new List<MatchedWord>();
 
+            // Find matching word within the list from scrambled words
             foreach (var scrambledWord in scrambledWords)
             {
                 foreach (var word in wordList)

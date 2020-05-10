@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Reflection.Metadata.Ecma335;
 using WordUnscrambler.App_Code;
 
 namespace WordUnscrambler
@@ -15,23 +14,15 @@ namespace WordUnscrambler
         {
             try
             {
+                bool continueApp;
+
                 Console.WriteLine(Constant.AppWelcomeMsg);
                 do
                 {
-                    string input;
-                    do
-                    {
-                        Console.Write(Constant.AppUnscramblerOptions);
-                        input = Console.ReadLine() ?? string.Empty;
+                    Console.Write(Constant.AppUnscramblerOptions);
+                    var input = Console.ReadLine() ?? string.Empty;
 
-                        if (string.Equals(input, Constant.FileInputIndicator, StringComparison.OrdinalIgnoreCase)
-                            || string.Equals(input, Constant.ManualInputIndicator, StringComparison.OrdinalIgnoreCase))
-                            break;
-
-                        Console.WriteLine(Constant.AppUnscramblerOptionInvalid);
-                    } while (true);
-
-
+                    // Main execution for File input or Manual entry
                     switch (input.ToUpper())
                     {
                         case Constant.FileInputIndicator:
@@ -42,15 +33,24 @@ namespace WordUnscrambler
                             Console.WriteLine(Constant.UsingManualInputToUnscrambleWord);
                             ExecuteScramblerManualEntryScenario();
                             break;
+                        default:
+                            Console.WriteLine(Constant.AppUnscramblerOptionInvalid);
+                            break;
                     }
 
-                    Console.Write(Constant.OptionToExitOrContinue);
-                    if (!string.Equals(Console.ReadLine(), Constant.ExitAppIndicator, StringComparison.OrdinalIgnoreCase)) continue;
+                    string continueDecision;
+                    do
+                    {
+                        Console.Write(Constant.OptionToExitOrContinue);
+                        continueDecision = Console.ReadLine() ?? string.Empty;
 
-                    Console.WriteLine(Constant.ExistingApplication);
-                    break;
+                    } while (!string.Equals(continueDecision, Constant.continueDecision_Yes, StringComparison.OrdinalIgnoreCase)
+                             && !string.Equals(continueDecision, Constant.continueDecision_No, StringComparison.OrdinalIgnoreCase));
 
-                } while (true);
+                    continueApp = continueDecision.Equals(Constant.continueDecision_Yes, StringComparison.OrdinalIgnoreCase);
+
+                } while (continueApp);
+                Console.WriteLine(Constant.ExistingApplication);
             }
             catch (Exception e)
             {
@@ -73,7 +73,7 @@ namespace WordUnscrambler
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                Console.WriteLine(Constant.AppScrambledWordsLoadError + e.Message);
             }
         }
 
@@ -88,7 +88,7 @@ namespace WordUnscrambler
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                Console.WriteLine(Constant.AppScrambledWordsLoadError + e.Message);
             }
         }
 
@@ -115,7 +115,7 @@ namespace WordUnscrambler
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                Console.WriteLine(Constant.AppScrambledWordsLoadError + ex.Message);
             }
         }
     }
