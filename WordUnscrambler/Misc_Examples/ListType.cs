@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace WordUnscrambler
+namespace WordUnscrambler.Misc_Examples
 {
     internal static class ListType
     {

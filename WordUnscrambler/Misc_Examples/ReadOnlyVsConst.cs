@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WordUnscrambler
+namespace WordUnscrambler.Misc_Examples
 {
     class ReadOnlyVsConst
     {

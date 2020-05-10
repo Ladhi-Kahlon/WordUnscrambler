@@ -1,4 +1,4 @@
-﻿namespace WordUnscrambler
+﻿namespace WordUnscrambler.Misc_Examples
 {
     public class Person
     {
